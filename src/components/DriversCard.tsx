@@ -8,6 +8,7 @@ export const DriversCard = ({
   piloteImage,
   points,
   stable,
+  podium,
 }) => (
   <View className="bg-black mx-4 px-4 rounded-2xl">
     <View className="flex-row py-2 justify-between">
@@ -28,10 +29,13 @@ export const DriversCard = ({
 
     <View className="flex-row mb-4">
       <View className="bg-gray-500 rounded px-1 mr-2">
-        <Text className="text-base text-white">{points}</Text>
+        <Text className="text-base text-white">{points}pts</Text>
       </View>
       <View className="bg-gray-500 rounded px-1">
         <Text className="text-base text-white">{stable}</Text>
+      </View>
+      <View className="bg-gray-500 rounded px-1">
+        <Text className="text-base text-white">{podium}podium</Text>
       </View>
     </View>
   </View>
