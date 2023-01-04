@@ -1,27 +1,21 @@
 import React from "react";
 import { View } from "react-native";
-import { DriversPage } from "./src/pages/DriversPage";
-import { ConstructorsPage } from "./src/pages/ConstructorsPage";
+import { DriversScreen } from "./src/screens/DriversScreen";
+import { Home } from "./src/screens/Home";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View>
-      {/* <ConstructorsPage /> */}
-      <DriversPage />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Driver" component={DriversScreen} />
+        <Tab.Screen name="Constructor" component={DriversScreen} />
+        <Tab.Screen name="ooo" component={DriversScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-// import React from "react";
-// import { StatusBar } from "expo-status-bar";
-// import { View } from "react-native";
-// import { MenuCard } from "~/components/MenuCard";
-
-// export default function App() {
-//   return (
-//     <View className="flex-1 justify-center bg-black">
-//         <MenuCard title="Drivers" image="https://e7.pngegg.com/pngimages/977/693/png-clipart-scuderia-ferrari-2013-formula-one-world-championship-mercedes-amg-petronas-f1-team-sport-formula-one-car-formula-1-sport-vehicle.png"/>
-//         <MenuCard title="Constructors" image="https://e7.pngegg.com/pngimages/657/824/png-clipart-f1-2016-f1-2017-formula-1-app-store-video-game-2017-fia-formula-one-world-championship-game-video-game.png"/>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }

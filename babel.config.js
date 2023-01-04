@@ -1,6 +1,6 @@
 module.exports = {
   // ... some other config
-  presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-flow"],
+  presets: ["babel-preset-expo"],
   plugins: [
     "nativewind/babel",
     // ... some other plugins
