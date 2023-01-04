@@ -1,15 +1,13 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { MenuCard } from "~/components/MenuCard";
+import { DriversCard } from "~/components/DriversCard";
 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-violet-500">
-      <Text className="font-bold">
-        Open up App.js to start working on your app!
-      </Text>
-      <MenuCard />
+    <View className="flex-1 justify-center bg-violet-500">
+      <Text>Open up App.js to start working on your app!</Text>
+      <DriversCard />
       <StatusBar style="auto" />
     </View>
   );
