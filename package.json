@@ -15,7 +15,8 @@
     "nativewind": "^2.0.11",
     "prettier": "^2.8.1",
     "react": "18.1.0",
-    "react-native": "0.70.5"
+    "react-native": "0.70.5",
+    "tailwindcss-react-native": "^1.7.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
