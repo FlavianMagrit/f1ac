@@ -7,7 +7,7 @@ interface DriverProps {
   lastname: string;
   pilotImage: string;
   points: string;
-  stable: string;
+  constructor: string;
   podium: number;
 }
 
@@ -17,14 +17,14 @@ export const DriversCard = ({
   lastname,
   pilotImage,
   points,
-  stable,
+  constructor,
   podium,
 }: DriverProps) => {
   const transformedFirstname = firstname.split(" ")[0];
   const transformedLastname = lastname.split(" ")[1];
 
   return (
-    <View className="bg-black mx-4 mb-6 px-4 rounded-2xl">
+    <View className="bg-black mx-4 mb-6 p-4 rounded-2xl">
       <View className="flex-row py-2 justify-between">
         <View className="justify-between">
           <Text className="font-bold text-white text-2xl">{number}</Text>
@@ -38,9 +38,9 @@ export const DriversCard = ({
           </View>
         </View>
 
-        <View>
+        <View className="bg-white rounded-2xl">
           <Image
-            className="w-32 h-32 rounded-2xl"
+            className="w-32 h-32"
             source={{
               uri: pilotImage,
             }}
@@ -50,16 +50,16 @@ export const DriversCard = ({
 
       <View className="my-6 border-solid border border-white" />
 
-      <View className="flex-row mb-4 flex-wrap">
+      <View className="flex-row mb-4 flex-wrap gap-y-2">
         <View className="bg-gray-500 rounded px-1 mr-2">
-          <Text className="text-base text-white">{points} pts</Text>
+          <Text className="text-base text-white uppercase">{points} pts</Text>
         </View>
         <View className="bg-gray-500 rounded px-1 mr-2">
-          <Text className="text-base text-white">{stable}</Text>
+          <Text className="text-base text-white uppercase">{constructor}</Text>
         </View>
-        <View className="bg-gray-500 rounded px-1">
-          <Text className="text-base text-white">{podium} podium</Text>
-        </View>
+        {/* <View className="bg-gray-500 rounded px-1">
+          <Text className="text-base text-white">{podium > 1 ? `${podium} podiums` : `${podium} podium`}</Text>
+        </View> */}
       </View>
     </View>
   );
