@@ -37,7 +37,7 @@ export const ConstructorScreen = () => {
   return (
     <SafeAreaView className="h-full m-4 pb-10">
       <Text className="font-bold text-5xl mx-4">Constructors</Text>
-      <Text className="font-bold text-xl mb-6 mx-4">Année {season}</Text>
+      <Text className="font-bold text-xl mb-6 mx-4">Season {season}</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
         {constructors.map((constructor, index: number) => (
           <ConstructorCard

@@ -31,14 +31,14 @@ export default function App() {
           component={TabsNavigator}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Constructors" component={ConstructorScreen} />
+        <Stack.Screen name="Winners !" component={ConstructorScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
 const TabsNavigator = () => (
-  <Tab.Navigator screenOptions={{ tabBarShowLabel: false }}>
+  <Tab.Navigator screenOptions={{ tabBarShowLabel: false, headerShown: false }}>
     <Tab.Screen
       name="Home"
       component={Home}

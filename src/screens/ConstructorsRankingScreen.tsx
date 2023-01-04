@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  TouchableOpacity,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
 import { atom, useAtom } from "jotai";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ConstructorScreen } from "./ConstructorsScreen";
@@ -8,22 +15,29 @@ export const seasonAtom = atom(2022);
 
 export const ConstructorsRankingScreen = ({ navigation }) => {
   const [season, setSeason] = useAtom(seasonAtom);
-  console.log(season);
 
   return (
-    <View>
-      <Text>{season}</Text>
-      {SEASONS.map(({ value }) => (
-        <Button
-          title={value.toString()}
-          key={value}
-          onPress={() => {
-            setSeason(value);
-            navigation.navigate("Constructors");
-          }}
-        />
-      ))}
-    </View>
+    <SafeAreaView className="h-full m-4 pb-10">
+      <Text className="font-bold text-2xl mx-4 mb-10">
+        🏆 Constructors Ranking 🏆
+      </Text>
+      <ScrollView>
+        {SEASONS.map(({ value }) => (
+          <TouchableOpacity
+            onPress={() => {
+              setSeason(value);
+              navigation.navigate("Winners !");
+            }}
+            key={value}
+            className="w-3/4 h-24 mx-auto mb-4 justify-center bg-black rounded-lg"
+          >
+            <Text className="text-center text-2xl font-bold text-white">
+              🏁 {value.toString()} 🏎
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -39,5 +53,17 @@ export const SEASONS = [
   },
   {
     value: 2019,
+  },
+  {
+    value: 2018,
+  },
+  {
+    value: 2017,
+  },
+  {
+    value: 2016,
+  },
+  {
+    value: 2015,
   },
 ];
