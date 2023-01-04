@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, Image } from "react-native";
 import { DriversCard } from "../components/DriversCard";
 
 export const DriversPage = () => {
@@ -34,7 +34,13 @@ export const DriversPage = () => {
 
   return (
     <SafeAreaView>
-      <Text className="font-bold text-6xl mt-14 mx-4">Drivers</Text>
+      <Image
+        className="w-32 h-32 ml-4"
+        source={{
+          uri: "https://lezebre.lu/images/detailed/79/45334-Sticker-Formula-1-nouveau-logo-F1.png",
+        }}
+      />
+      <Text className="font-bold text-6xl mx-4">Drivers</Text>
       <Text className="font-bold text-xl mb-6 mx-4">Année {season}</Text>
       <ScrollView className="mt-8">
         {data.map((driver) => (
