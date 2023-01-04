@@ -31,11 +31,7 @@ export default function App() {
           component={TabsNavigator}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Constructors"
-          component={ConstructorScreen}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="Constructors" component={ConstructorScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
