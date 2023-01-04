@@ -2,12 +2,14 @@ import React from "react";
 import { View } from "react-native";
 import { DriversPage } from "./src/pages/DriversPage";
 import { ConstructorsPage } from "./src/pages/ConstructorsPage";
+import { HomePage } from "./src/pages/HomePage";
 
 export default function App() {
   return (
     <View>
       {/* <ConstructorsPage /> */}
-      <DriversPage />
+      {/* <DriversPage /> */}
+      <HomePage />
     </View>
   );
 }
