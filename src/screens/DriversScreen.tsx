@@ -34,16 +34,10 @@ export const DriversScreen = () => {
 
   return (
     <SafeAreaView className="h-full m-4 pb-10">
-      <Image
-        className="w-32 h-32 ml-4"
-        source={{
-          uri: "https://lezebre.lu/images/detailed/79/45334-Sticker-Formula-1-nouveau-logo-F1.png",
-        }}
-      />
-      <Text className="font-bold text-6xl mx-4">Drivers</Text>
+      <Text className="font-bold text-5xl mx-4">Drivers</Text>
       <Text className="font-bold text-xl mb-6 mx-4">Année {season}</Text>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
-        {drivers.map((driver, index:number) => (
+        {drivers.map((driver, index: number) => (
           <DriversCard
             key={index}
             firstname={driver.driver.name}
