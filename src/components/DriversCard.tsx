@@ -31,7 +31,7 @@ export const DriversCard = ({
       <View className="bg-gray-500 rounded px-1 mr-2">
         <Text className="text-base text-white">{points}pts</Text>
       </View>
-      <View className="bg-gray-500 rounded px-1">
+      <View className="bg-gray-500 rounded px-1 mr-2">
         <Text className="text-base text-white">{stable}</Text>
       </View>
       <View className="bg-gray-500 rounded px-1">
