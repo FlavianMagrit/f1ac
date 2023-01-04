@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, SafeAreaView, ScrollView, Image } from "react-native";
 import { DriversCard } from "../components/DriversCard";
 
-export const DriversPage = () => {
+export const DriversScreen = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [season, setSeason] = useState(2022);
