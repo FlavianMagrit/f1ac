@@ -8,13 +8,11 @@ import {
   SafeAreaView,
 } from "react-native";
 import { atom, useAtom } from "jotai";
-import { createStackNavigator } from "@react-navigation/stack";
-import { ConstructorScreen } from "./ConstructorsScreen";
 
 export const seasonAtom = atom(2022);
 
 export const ConstructorsRankingScreen = ({ navigation }) => {
-  const [season, setSeason] = useAtom(seasonAtom);
+  const [_, setSeason] = useAtom(seasonAtom);
 
   return (
     <SafeAreaView className="h-full m-4 pb-10">
