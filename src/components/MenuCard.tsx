@@ -1,12 +1,14 @@
 import React from "react";
-import { Text, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { Text, View, Image } from "react-native";
 
-export const MenuCard = () => (
-  <View>
-    <Text className="bg-violet-200">
-      Open up App.js to start working on your app!
-    </Text>
-    <StatusBar style="auto" />
+type MenuProps = {
+  title: string;
+  image: string;
+};
+
+export const MenuCard = ({title, image}: MenuProps) => (
+  <View className="bg-white mx-4 overflow-hidden rounded-2xl h-80">
+    <Text className="font-bold text-4xl mt-4 ml-4">{title}</Text>
+    <Image source={{uri : image}} className="h-full w-full"/>
   </View>
 );
