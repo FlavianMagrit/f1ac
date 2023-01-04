@@ -32,12 +32,10 @@ export const DriversPage = () => {
     getDrivers(2021);
   }, []);
 
-  console.log(data);
-
   return (
     <SafeAreaView>
-      <Text className="font-bold text-6xl mt-14 mb-6 mx-4">Drivers</Text>
-      <Text className="font-bold text-6xl mt-14 mb-6 mx-4">Année {season}</Text>
+      <Text className="font-bold text-6xl mt-14 mx-4">Drivers</Text>
+      <Text className="font-bold text-xl mb-6 mx-4">Année {season}</Text>
       <ScrollView className="mt-8">
         {data.map((driver) => (
           <DriversCard
