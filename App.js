@@ -14,7 +14,7 @@ import { MoreContentScreen } from "./src/screens/MoreContentScreen";
 import { ArticleScreen } from "./src/screens/ArticleScreen";
 import { ConstructorsScreen } from "./src/screens/ConstructorsScreen";
 import { DriverScreen } from "./src/screens/DriverScreen";
-import { LoginScreen } from "./src/screens/LoginScreen";
+import LoginScreen from "./src/screens/LoginScreen";
 import { HomeScreen } from "./src/screens/HomeScreen";
 
 const Tab = createBottomTabNavigator();
