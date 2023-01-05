@@ -2,7 +2,7 @@ import { SafeAreaView, ScrollView, Text, View } from "react-native";
 import { HomeCard } from "../components/HomeCard";
 
 export const HomeScreen = ({ navigation }) => (
-  <SafeAreaView>
+  <SafeAreaView className="mb-20">
     <Text className="font-bold text-5xl ml-4 my-6">Standings</Text>
     <ScrollView>
       <HomeCard
