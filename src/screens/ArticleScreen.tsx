@@ -17,10 +17,7 @@ export const ArticleScreen = () => {
     <SafeAreaView className="h-full">
       <ScrollView>
         <Image
-          source={{
-            uri:
-              article.image_url ?? "https://wallpaper.dog/large/20509438.jpg",
-          }}
+          source={{uri: article.image_url ?? "https://wallpaper.dog/large/20509438.jpg"}}
           className="w-full h-64 mb-4"
         />
         <View className="px-4 gap-y-2.5">
