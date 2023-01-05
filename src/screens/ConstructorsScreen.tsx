@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, SafeAreaView, View, TouchableOpacity } from "react-native";
+import {
+  Text,
+  ScrollView,
+  SafeAreaView,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
 import { ConstructorCard } from "../components/ConstructorCard";
@@ -11,7 +17,7 @@ type ConstructorProps = {
   position: number;
   points: number;
   season: number;
-}
+};
 
 export const seasonAtom = atom<number>(2022);
 export const constructorAtom = atom<ConstructorProps>({} as ConstructorProps);
@@ -87,47 +93,6 @@ export const ConstructorsScreen = ({ navigation }) => {
           ]}
         />
       </View>
-      {/* <ScrollView showsVerticalScrollIndicator={false}>
-        {constructors.map((constructor: any, index: number) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => {
-              setConstructor({
-                id: constructor.team.id,
-                name: constructor.team.name,
-                logo: constructor.team.logo,
-                position: constructor.position,
-                points: constructor.points,
-                season: constructor.season,
-              });
-              navigation.navigate("Constructor");
-            }}
-          >
-            <ConstructorCard
-              position={constructor.position}
-              name={constructor.team.name}
-              constructorImage={constructor.team.logo}
-              points={constructor.points}
-            />
-          </TouchableOpacity>
-        ))}
-      </ScrollView>*/}
-      {/*<ScrollView>*/}
-      {/*  {SEASONS.map(({ value }) => (*/}
-      {/*    <TouchableOpacity*/}
-      {/*      onPress={() => {*/}
-      {/*        setSeason(value);*/}
-      {/*        navigation.navigate("Winners !");*/}
-      {/*      }}*/}
-      {/*      key={value}*/}
-      {/*      className="w-3/4 h-24 mx-auto mb-4 justify-center bg-black rounded-lg"*/}
-      {/*    >*/}
-      {/*      <Text className="text-center text-2xl font-bold text-white">*/}
-      {/*        🏁 {value.toString()} 🏎*/}
-      {/*      </Text>*/}
-      {/*    </TouchableOpacity>*/}
-      {/*  ))}*/}
-      {/*</ScrollView>*/}
     </SafeAreaView>
   );
 };
