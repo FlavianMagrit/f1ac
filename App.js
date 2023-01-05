@@ -1,22 +1,20 @@
 import React from "react";
 import { Image } from "react-native";
-import { DriversScreen } from "./src/screens/DriversScreen";
+
 import { NavigationContainer } from "@react-navigation/native";
-import { MoreContentScreen } from "./src/screens/MoreContentScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  FontAwesome,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from "@expo/vector-icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+
+import firebase from "firebase/compat";
+
+import { DriversScreen } from "./src/screens/DriversScreen";
+import { MoreContentScreen } from "./src/screens/MoreContentScreen";
 import { ArticleScreen } from "./src/screens/ArticleScreen";
 import { ConstructorsScreen } from "./src/screens/ConstructorsScreen";
-import { ArticleScreen } from "./src/screens/ArticleScreen";
 import { DriverScreen } from "./src/screens/DriverScreen";
-import { ConstructorsRankingScreen } from "./src/screens/ConstructorsRankingScreen";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "./src/screens/LoginScreen";
-import firebase from "firebase/compat";
+import { LoginScreen } from "./src/screens/LoginScreen";
 import { HomeScreen } from "./src/screens/HomeScreen";
 
 const Tab = createBottomTabNavigator();
