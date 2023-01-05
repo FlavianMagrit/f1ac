@@ -87,15 +87,28 @@ const TabsNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="User"
-        component={user ? MoreContentScreen : LoginScreen}
-        options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="keyboard-control" color="black" size={48} />
-          ),
-        }}
-      />
+      {
+        user ?
+        <Tab.Screen
+          name="MoreContentScreen"
+          component={MoreContentScreen}
+          options={{
+            tabBarIcon: () => (
+              <MaterialIcons name="keyboard-control" color="black" size={48} />
+            ),
+          }}
+        />
+        :
+        <Tab.Screen
+          name="User"
+          component={LoginScreen}
+          options={{
+            tabBarIcon: () => (
+              <MaterialIcons name="keyboard-control" color="black" size={48} />
+            ),
+          }}
+        />
+      }
     </Tab.Navigator>
   );
 };
