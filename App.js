@@ -15,6 +15,7 @@ import { ConstructorsRankingScreen } from "./src/screens/ConstructorsRankingScre
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
 import firebase from "firebase/compat";
+import { HomeScreen } from "./src/screens/HomeScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -55,7 +56,7 @@ const TabsNavigator = () => {
     >
       <Tab.Screen
         name="Home"
-        component={DriversScreen}
+        component={HomeScreen}
         options={{
           tabBarIcon: () => (
             <MaterialCommunityIcons
