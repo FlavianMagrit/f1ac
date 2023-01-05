@@ -1,11 +1,15 @@
 import React from "react";
-import { Image } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import {
+  FontAwesome,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 
 import firebase from "firebase/compat";
 
@@ -16,6 +20,7 @@ import { ConstructorsScreen } from "./src/screens/ConstructorsScreen";
 import { DriverScreen } from "./src/screens/DriverScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import { HomeScreen } from "./src/screens/HomeScreen";
+import { LogoutButton } from "./src/components/LogoutButton";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -23,19 +28,26 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Image
-        className="w-16 h-16 mt-4 ml-6"
-        source={{
-          uri: "https://lezebre.lu/images/detailed/79/45334-Sticker-Formula-1-nouveau-logo-F1.png",
-        }}
-      />
+      <View className="flex-row justify-between">
+        <Image
+          className="w-16 h-16 mt-4 ml-6"
+          source={{
+            uri: "https://lezebre.lu/images/detailed/79/45334-Sticker-Formula-1-nouveau-logo-F1.png",
+          }}
+        />
+        <LogoutButton />
+      </View>
       <Stack.Navigator>
         <Stack.Screen
           name="Tabs"
           component={TabsNavigator}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="MoreContentScreen" component={MoreContentScreen} />
+        <Stack.Screen
+          name="MoreContentScreen"
+          options={{ headerShown: false }}
+          component={MoreContentScreen}
+        />
         <Stack.Screen name="Constructors" component={ConstructorsScreen} />
         <Stack.Screen name="Article" component={ArticleScreen} />
         <Stack.Screen name="Driver" component={DriverScreen} />
@@ -87,7 +99,7 @@ const TabsNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="User"
+        name="Login"
         component={user ? MoreContentScreen : LoginScreen}
         options={{
           tabBarIcon: () => (
