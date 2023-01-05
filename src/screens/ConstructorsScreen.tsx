@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  Text,
-  ScrollView,
-  SafeAreaView,
-  View,
-  TouchableOpacity,
-} from "react-native";
+import { Text, SafeAreaView, View } from "react-native";
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
-import { ConstructorCard } from "../components/ConstructorCard";
 
 type ConstructorProps = {
   id: number;
@@ -24,7 +17,6 @@ export const constructorAtom = atom<ConstructorProps>({} as ConstructorProps);
 
 export const ConstructorsScreen = ({ navigation }) => {
   const [season, setSeason] = useAtom(seasonAtom);
-  const [constructor, setConstructor] = useAtom(constructorAtom);
   const [_, setLoading] = useState(true);
   const [constructors, setConstructors] = useState([]);
 
@@ -51,7 +43,6 @@ export const ConstructorsScreen = ({ navigation }) => {
     getConstructors();
   }, [season]);
 
-  let pickerSelectStyles;
   return (
     <SafeAreaView className="h-full m-4 pb-10">
       <Text className="font-bold text-2xl mx-4 mb-10">
@@ -96,30 +87,3 @@ export const ConstructorsScreen = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-
-export const SEASONS = [
-  {
-    value: 2022,
-  },
-  {
-    value: 2021,
-  },
-  {
-    value: 2020,
-  },
-  {
-    value: 2019,
-  },
-  {
-    value: 2018,
-  },
-  {
-    value: 2017,
-  },
-  {
-    value: 2016,
-  },
-  {
-    value: 2015,
-  },
-];
