@@ -18,7 +18,6 @@ export const DriversCard = ({
   pilotImage,
   points,
   constructor,
-  podium,
 }: DriverProps) => {
   const transformedFirstname = firstname.split(" ")[0];
   const transformedLastname = lastname.split(" ")[1];
@@ -57,9 +56,6 @@ export const DriversCard = ({
         <View className="bg-gray-500 rounded px-1 mr-2">
           <Text className="text-base text-white uppercase">{constructor}</Text>
         </View>
-        {/* <View className="bg-gray-500 rounded px-1">
-          <Text className="text-base text-white">{podium > 1 ? `${podium} podiums` : `${podium} podium`}</Text>
-        </View> */}
       </View>
     </View>
   );

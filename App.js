@@ -9,6 +9,7 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
+import { ArticleScreen } from "./src/screens/ArticleScreen";
 import { ConstructorsScreen } from "./src/screens/ConstructorsScreen";
 import { ArticleScreen } from "./src/screens/ArticleScreen";
 import { DriverScreen } from "./src/screens/DriverScreen";
@@ -16,6 +17,7 @@ import { ConstructorsRankingScreen } from "./src/screens/ConstructorsRankingScre
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
 import firebase from "firebase/compat";
+import { HomeScreen } from "./src/screens/HomeScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -36,11 +38,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="MoreContentScreen" component={MoreContentScreen} />
-        <Stack.Screen name="Winners !" component={ConstructorsScreen} />
-        <Stack.Screen
-          name="Constructors"
-          component={ConstructorsRankingScreen}
-        />
+        <Stack.Screen name="Constructors" component={ConstructorsScreen} />
         <Stack.Screen name="Article" component={ArticleScreen} />
         <Stack.Screen name="Driver" component={DriverScreen} />
       </Stack.Navigator>
@@ -57,7 +55,7 @@ const TabsNavigator = () => {
     >
       <Tab.Screen
         name="Home"
-        component={DriversScreen}
+        component={HomeScreen}
         options={{
           tabBarIcon: () => (
             <MaterialCommunityIcons
@@ -78,8 +76,8 @@ const TabsNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="ConstructorsRanking"
-        component={ConstructorsRankingScreen}
+        name="Constructors"
+        component={ConstructorsScreen}
         options={{
           tabBarIcon: () => (
             <MaterialCommunityIcons
