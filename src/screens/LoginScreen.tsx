@@ -37,38 +37,46 @@ const LoginScreen = ({ navigation }) => {
       .signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
+        navigation.navigate("Winners !");
         console.log("Logged in with:", user.email);
       })
       .catch((error) => alert(error.message));
   };
 
   return (
-    <KeyboardAvoidingView
-      className="flex-1 justify-center align-center"
-      behavior="padding"
-    >
-      <View className="w-4/5">
+    <KeyboardAvoidingView className="flex-1 align-center">
+      <Text className="font-bold px-3 my-24 text-4xl mx-auto text-center">
+        Login or Register for more content
+      </Text>
+
+      <View className="w-4/5 justify-center align-center mx-auto">
         <TextInput
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text)}
-          className="w-full h-12 px-4 mb-4 text-lg border border-black rounded-lg bg-white text-black"
+          className="w-full h-12 px-4 pb-3 mb-4 text-lg border border-black rounded-lg bg-white text-black"
         />
         <TextInput
           placeholder="Password"
           value={password}
           onChangeText={(text) => setPassword(text)}
-          className="w-full h-12 px-4 mb-4 text-lg border border-black rounded-lg bg-white text-black"
+          className="w-full h-12 px-4 pb-3 mb-4 text-lg border border-black rounded-lg bg-white text-black"
           secureTextEntry
         />
       </View>
 
-      <View className="w-3/5 justify-center align-center ">
-        <TouchableOpacity onPress={handleLogin} style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+      <View className="w-3/5 justify-center align-center mx-auto">
+        <TouchableOpacity
+          onPress={handleLogin}
+          className="w-full h-12 px-4 mb-4 rounded-lg bg-black justify-center"
+        >
+          <Text className="text-lg text-center text-white">Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleSignUp} className="bg-white">
-          <Text>Register</Text>
+        <TouchableOpacity
+          onPress={handleSignUp}
+          className="w-full h-12 px-4 mb-4 border border-black rounded-lg bg-white justify-center"
+        >
+          <Text className="text-lg text-center">Register</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -76,35 +84,3 @@ const LoginScreen = ({ navigation }) => {
 };
 
 export default LoginScreen;
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    width: "60%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
-  },
-  button: {
-    backgroundColor: "black",
-    width: "100%",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  buttonOutline: {
-    backgroundColor: "white",
-    marginTop: 5,
-    borderColor: "black",
-    borderWidth: 2,
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  buttonOutlineText: {
-    color: "black",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-});
