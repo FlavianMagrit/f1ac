@@ -1,11 +1,29 @@
 import React, { useEffect, useState } from "react";
-
-import { SafeAreaView, Text, ScrollView } from "react-native";
+import { atom, useAtom } from "jotai";
+import { SafeAreaView, Text, ScrollView, TouchableOpacity } from "react-native";
 import { ArticleCard } from "../components/ArticleCard";
+
+type ArticleProps = {
+  title: string;
+  content?: string;
+  image_url: string;
+  pubDate: string;
+  source: string;
+  link: string;
+  creator?: string;
+  keywords?: Array<string>;
+}
 
 export const MoreContentScreen = () => {
   const [_, setLoading] = useState(true);
+
+export const articleAtom = atom({} as ArticleProps);
+
+export const Home = ({navigation}) => {
+  const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
+
+  const [_, setArticle] = useAtom(articleAtom);
 
   const getArticles = async () => {
     try {
@@ -31,13 +49,19 @@ export const MoreContentScreen = () => {
       <Text className="font-bold text-4xl mx-4">More Content</Text>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
         {articles.map((article, index: number) => (
-          <ArticleCard
+          <TouchableOpacity
             key={index}
-            title={article.title}
-            articleImage={article.image_url}
-            publishDate={article.pubDate}
-            source={article.source}
-          />
+            onPress={() => {
+              setArticle(article);
+              navigation.navigate("Article")}}
+          >
+            <ArticleCard
+              title={article.title}
+              articleImage={article.image_url}
+              publishDate={article.pubDate}
+              source={article.source}
+            />
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </SafeAreaView>
