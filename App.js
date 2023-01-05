@@ -1,8 +1,8 @@
 import React from "react";
 import { Image } from "react-native";
 import { DriversScreen } from "./src/screens/DriversScreen";
-import { MoreContentScreen } from "./src/screens/MoreContentScreen";
 import { NavigationContainer } from "@react-navigation/native";
+import { MoreContentScreen } from "./src/screens/MoreContentScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   FontAwesome,
@@ -34,13 +34,13 @@ export default function App() {
           component={TabsNavigator}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="MoreContentScreen" component={MoreContentScreen} />
         <Stack.Screen name="Winners !" component={ConstructorsScreen} />
-        <Stack.Screen name="HomeScreen" component={MoreContentScreen} />
         <Stack.Screen
           name="Constructors"
           component={ConstructorsRankingScreen}
         />
-          <Stack.Screen name="Article" component={ArticleScreen} />
+        <Stack.Screen name="Article" component={ArticleScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
