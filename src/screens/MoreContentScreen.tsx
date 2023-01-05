@@ -12,14 +12,15 @@ type ArticleProps = {
   link: string;
   creator?: string;
   keywords?: Array<string>;
-}
-
-export const MoreContentScreen = () => {
-  const [_, setLoading] = useState(true);
+};
 
 export const articleAtom = atom({} as ArticleProps);
 
-export const Home = ({navigation}) => {
+export const MoreContentScreen = () => {
+  const [_, setLoading] = useState(true);
+};
+
+export const Home = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
@@ -53,7 +54,8 @@ export const Home = ({navigation}) => {
             key={index}
             onPress={() => {
               setArticle(article);
-              navigation.navigate("Article")}}
+              navigation.navigate("Article");
+            }}
           >
             <ArticleCard
               title={article.title}
