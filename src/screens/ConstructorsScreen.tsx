@@ -8,7 +8,6 @@ export const seasonAtom = atom(2021);
 
 export const ConstructorsScreen = ({ navigation }) => {
   const [season, setSeason] = useAtom(seasonAtom);
-  const [_, setLoading] = useState(true);
   const [constructors, setConstructors] = useState([]);
 
   const getConstructors = async () => {

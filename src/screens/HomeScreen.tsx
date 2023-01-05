@@ -15,7 +15,7 @@ export const HomeScreen = ({ navigation }) => (
         title="Constructors"
         image="https://f1tcdn.net/gallery/var/resizes/2017/ferrari-sf70h/ferrari-sf70h.png"
         navigation={navigation}
-        page="ConstructorsRanking"
+        page="Constructors"
       />
     </ScrollView>
   </SafeAreaView>
