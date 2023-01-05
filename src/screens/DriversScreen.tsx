@@ -17,7 +17,7 @@ type DriverProps = {
   points: number;
 };
 
-export const driverAtom = atom({} as DriverProps);
+export const driverAtom = atom<DriverProps>({} as DriverProps);
 
 export const DriversScreen = ({navigation}) => {
   const [isLoading, setLoading] = useState(true);
@@ -33,7 +33,7 @@ export const DriversScreen = ({navigation}) => {
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "31127b33336524cdbc654399faaec0c2",
+            "x-rapidapi-key": "35f3f95a07de3720a825ef01d8169aa2",
           },
         }
       );
@@ -52,9 +52,11 @@ export const DriversScreen = ({navigation}) => {
   }, []);
 
   return (
-    <SafeAreaView className="h-full m-4 pb-10">
-      <Text className="font-bold text-5xl mx-4">Drivers</Text>
-      <Text className="font-bold text-xl mb-6 mx-4">Année {season}</Text>
+    <SafeAreaView className="h-full mt-4 mb-20">
+      <View className="mx-4 h-12">
+        <Text className="font-bold text-5xl">Drivers</Text>
+        <Text className="font-bold text-xl">Season {season}</Text>
+      </View>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
         {drivers.map((driver: any, index: number): any => (
           <TouchableOpacity

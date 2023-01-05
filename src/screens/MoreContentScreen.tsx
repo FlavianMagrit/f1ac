@@ -24,10 +24,7 @@ export const MoreContentScreen = ({ navigation }) => {
 
   const getArticles = async () => {
     try {
-      const response = await fetch(
-        `https://newsdata.io/api/1/news?apikey=pub_15267b82367744d037844b9535bd615c0ed57&q=f1&language=en`,
-        { method: "GET" }
-      );
+      const response = await fetch(`https://newsdata.io/api/1/news?apikey=pub_15267b82367744d037844b9535bd615c0ed57&q=f1&language=en`);
       const json = await response.json();
       setArticles(json.results);
     } catch (error) {
@@ -42,8 +39,8 @@ export const MoreContentScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView className="h-full m-4 pb-10">
-      <Text className="font-bold text-4xl mx-4">More Content</Text>
+    <SafeAreaView className="h-full m-4 mb-20">
+      <Text className="font-bold text-4xl mx-4">News</Text>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
         {articles.map((article: any, index: number) => (
           <TouchableOpacity

@@ -52,7 +52,7 @@ const LoginScreen = ({ navigation }) => {
         <TextInput
           placeholder="Email"
           value={email}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(text) => setEmail(text.trim())}
           className="w-full h-12 px-4 pb-3 mb-4 text-lg border border-black rounded-lg bg-white text-black"
         />
         <TextInput

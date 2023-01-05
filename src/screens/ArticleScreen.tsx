@@ -17,7 +17,10 @@ export const ArticleScreen = () => {
     <SafeAreaView className="h-full">
       <ScrollView>
         <Image
-          source={{uri: article.image_url ?? "https://wallpaper.dog/large/20509438.jpg"}}
+          source={{
+            uri:
+              article.image_url ?? "https://wallpaper.dog/large/20509438.jpg",
+          }}
           className="w-full h-64 mb-4"
         />
         <View className="px-4 gap-y-2.5">
@@ -28,7 +31,7 @@ export const ArticleScreen = () => {
           <Text className="text-justify">{article?.content}</Text>
           <View className="flex-row flex-wrap">
             {article?.keywords?.map((keyword: string, index: number) => (
-              <View className="bg-gray-500 rounded px-1 mr-2 mb-2">
+              <View key={index} className="bg-gray-500 rounded px-1 mr-2 mb-2">
                 <Text className="text-base text-white">{keyword}</Text>
               </View>
             ))}

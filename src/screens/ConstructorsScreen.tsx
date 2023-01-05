@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, SafeAreaView, View } from "react-native";
+import { Text, SafeAreaView, View } from "react-native";
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
-import { ConstructorCard } from "../components/ConstructorCard";
 
-export const seasonAtom = atom(2021);
+type ConstructorProps = {
+  id: number;
+  name: string;
+  logo: string;
+  position: number;
+  points: number;
+  season: number;
+};
+
+export const seasonAtom = atom<number>(2022);
+export const constructorAtom = atom<ConstructorProps>({} as ConstructorProps);
 
 export const ConstructorsScreen = ({ navigation }) => {
   const [season, setSeason] = useAtom(seasonAtom);
+  const [_, setLoading] = useState(true);
   const [constructors, setConstructors] = useState([]);
 
   const getConstructors = async () => {
@@ -17,7 +27,7 @@ export const ConstructorsScreen = ({ navigation }) => {
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "",
+            "x-rapidapi-key": "35f3f95a07de3720a825ef01d8169aa2",
           },
         }
       );
@@ -74,60 +84,6 @@ export const ConstructorsScreen = ({ navigation }) => {
           ]}
         />
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {constructors.map((constructor, index: number) => (
-          <ConstructorCard
-            key={index}
-            position={constructor.position}
-            name={constructor.team.name}
-            constructorImage={constructor.team.logo}
-            points={constructor.points}
-          />
-        ))}
-      </ScrollView>
-      {/*<ScrollView>*/}
-      {/*  {SEASONS.map(({ value }) => (*/}
-      {/*    <TouchableOpacity*/}
-      {/*      onPress={() => {*/}
-      {/*        setSeason(value);*/}
-      {/*        navigation.navigate("Winners !");*/}
-      {/*      }}*/}
-      {/*      key={value}*/}
-      {/*      className="w-3/4 h-24 mx-auto mb-4 justify-center bg-black rounded-lg"*/}
-      {/*    >*/}
-      {/*      <Text className="text-center text-2xl font-bold text-white">*/}
-      {/*        🏁 {value.toString()} 🏎*/}
-      {/*      </Text>*/}
-      {/*    </TouchableOpacity>*/}
-      {/*  ))}*/}
-      {/*</ScrollView>*/}
     </SafeAreaView>
   );
 };
-
-export const SEASONS = [
-  {
-    value: 2022,
-  },
-  {
-    value: 2021,
-  },
-  {
-    value: 2020,
-  },
-  {
-    value: 2019,
-  },
-  {
-    value: 2018,
-  },
-  {
-    value: 2017,
-  },
-  {
-    value: 2016,
-  },
-  {
-    value: 2015,
-  },
-];
