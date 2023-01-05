@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Button,
-  TouchableOpacity,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { Text, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
 import { atom, useAtom } from "jotai";
 
 export const seasonAtom = atom(2022);

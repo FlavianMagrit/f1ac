@@ -12,14 +12,18 @@ type ArticleProps = {
   link: string;
   creator?: string;
   keywords?: Array<string>;
-}
+};
 
 export const articleAtom = atom({} as ArticleProps);
 
-export const Home = ({navigation}) => {
+export const MoreContentScreen = () => {
+  const [_, setLoading] = useState(true);
+};
+
+export const Home = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
-  
+
   const [_, setArticle] = useAtom(articleAtom);
 
   const getArticles = async () => {
@@ -29,7 +33,6 @@ export const Home = ({navigation}) => {
         { method: "GET" }
       );
       const json = await response.json();
-      console.log(json.results);
       setArticles(json.results);
     } catch (error) {
       console.error(error);
@@ -44,14 +47,15 @@ export const Home = ({navigation}) => {
 
   return (
     <SafeAreaView className="h-full m-4 pb-10">
-      <Text className="font-bold text-6xl mx-4">Home</Text>
+      <Text className="font-bold text-4xl mx-4">More Content</Text>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
         {articles.map((article, index: number) => (
           <TouchableOpacity
             key={index}
             onPress={() => {
               setArticle(article);
-              navigation.navigate("Article")}}
+              navigation.navigate("Article");
+            }}
           >
             <ArticleCard
               title={article.title}
