@@ -11,6 +11,7 @@ import {
 } from "@expo/vector-icons";
 import { ConstructorsScreen } from "./src/screens/ConstructorsScreen";
 import { ArticleScreen } from "./src/screens/ArticleScreen";
+import { DriverScreen } from "./src/screens/DriverScreen";
 import { ConstructorsRankingScreen } from "./src/screens/ConstructorsRankingScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
@@ -41,6 +42,7 @@ export default function App() {
           component={ConstructorsRankingScreen}
         />
         <Stack.Screen name="Article" component={ArticleScreen} />
+        <Stack.Screen name="Driver" component={DriverScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

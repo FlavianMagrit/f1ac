@@ -1,11 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, ScrollView, Image } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 import { DriversCard } from "../components/DriverCard";
+import { atom, useAtom } from "jotai";
 
-export const DriversScreen = () => {
+type DriverProps = {
+  id: number;
+  name: string;
+  abbr: string;
+  position: number;
+  number: number;
+  image: string;
+  team: {
+    name: string;
+    logo: string;
+  }
+  points: number;
+};
+
+export const driverAtom = atom({} as DriverProps);
+
+export const DriversScreen = ({navigation}) => {
   const [isLoading, setLoading] = useState(true);
   const [drivers, setDrivers] = useState([]);
   const [season, setSeason] = useState(2022);
+
+  const [_, setDriver] = useAtom(driverAtom);
 
   const getDrivers = async (year: number) => {
     try {
@@ -14,7 +33,7 @@ export const DriversScreen = () => {
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "9684c09cd4c60215395bd06439de781d",
+            "x-rapidapi-key": "31127b33336524cdbc654399faaec0c2",
           },
         }
       );
@@ -29,7 +48,7 @@ export const DriversScreen = () => {
   };
 
   useEffect(() => {
-    getDrivers(2020);
+    getDrivers(2022);
   }, []);
 
   return (
@@ -37,17 +56,37 @@ export const DriversScreen = () => {
       <Text className="font-bold text-5xl mx-4">Drivers</Text>
       <Text className="font-bold text-xl mb-6 mx-4">Année {season}</Text>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
-        {drivers.map((driver, index: number) => (
-          <DriversCard
+        {drivers.map((driver: any, index: number): any => (
+          <TouchableOpacity
             key={index}
-            firstname={driver.driver.name}
-            lastname={driver.driver.name}
-            number={driver.driver.number}
-            pilotImage={driver.driver.image}
-            podium={driver.position}
-            points={driver.points}
-            constructor={driver.team.name}
-          />
+            onPress={() => {
+              setDriver({
+                id: driver.driver.id,
+                name: driver.driver.name,
+                abbr: driver.driver.abbr,
+                position: driver.position,
+                number: driver.driver.number,
+                image: driver.driver.image,
+                team: {
+                  name: driver.team.name,
+                  logo: driver.team.logo,
+                },
+                points: driver.points
+              });
+              navigation.navigate("Driver");
+            }}
+          >
+            <DriversCard
+              key={index}
+              firstname={driver.driver.name}
+              lastname={driver.driver.name}
+              number={driver.driver.number}
+              pilotImage={driver.driver.image}
+              podium={driver.position}
+              points={driver.points}
+              constructor={driver.team.name}
+            />
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </SafeAreaView>
