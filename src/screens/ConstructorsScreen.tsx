@@ -24,7 +24,6 @@ export const ConstructorsScreen = ({ navigation }) => {
       const json = await response.json();
       setConstructors(json.response);
       setSeason(season);
-      console.log(json.response);
     } catch (error) {
       console.error(error);
     }
@@ -34,9 +33,6 @@ export const ConstructorsScreen = ({ navigation }) => {
     getConstructors();
   }, [season]);
 
-  console.log(constructors);
-
-  let pickerSelectStyles;
   return (
     <SafeAreaView className="h-full m-4 pb-10">
       <Text className="font-bold text-2xl mx-4 mb-10">
