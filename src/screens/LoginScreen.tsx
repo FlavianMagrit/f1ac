@@ -45,7 +45,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <KeyboardAvoidingView className="flex-1 align-center">
-      <Text className="font-bold px-3 my-24 text-4xl mx-auto text-center">
+      <Text className="font-bold px-3 my-14 text-4xl mx-auto text-center">
         Login or Register for more content
       </Text>
       <View className="w-4/5 justify-center align-center mx-auto">

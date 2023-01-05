@@ -42,7 +42,7 @@ export const MoreContentScreen = ({ navigation }) => {
     <SafeAreaView className="h-full m-4 mb-20">
       <Text className="font-bold text-4xl mx-4">News</Text>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
-        {articles.map((article:any, index: number) => (
+        {articles.map((article: any, index: number) => (
           <TouchableOpacity
             key={index}
             onPress={() => {
