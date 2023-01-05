@@ -4,7 +4,7 @@ import { ConstructorCard } from "../components/ConstructorCard";
 import { useAtom } from "jotai";
 import { seasonAtom } from "./ConstructorsRankingScreen";
 
-export const ConstructorScreen = () => {
+export const ConstructorsScreen = () => {
   const [isLoading, setLoading] = useState(true);
   const [constructors, setConstructors] = useState([]);
   const [season, setSeason] = useAtom(seasonAtom);
