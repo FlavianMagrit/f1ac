@@ -14,49 +14,35 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    return auth.onAuthStateChanged((user) => {
-      if (user) {
-        navigation.navigate("Constructors");
-      }
-    });
+    return auth.onAuthStateChanged((user) => {if(user) navigation.navigate("Constructors");});
   }, []);
 
   const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        navigation.navigate("MoreContentScreen");
-        console.log("Registered with:", user.email);
-      })
+    auth.createUserWithEmailAndPassword(email, password)
+      .then(() => navigation.navigate("Articles"))
       .catch((error) => alert(error.message));
   };
 
   const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        navigation.navigate("MoreContentScreen");
-        console.log("Logged in with:", user.email);
-      })
+    auth.signInWithEmailAndPassword(email, password)
+      .then(() => navigation.navigate("Articles"))
       .catch((error) => alert(error.message));
   };
 
   return (
     <KeyboardAvoidingView className="flex-1 align-center">
-      <Text className="font-bold px-3 my-14 text-4xl mx-auto text-center">
-        Login or Register for more content
-      </Text>
+      <Text className="font-bold px-3 my-14 text-4xl mx-auto text-center">Login or Register for more content</Text>
       <View className="w-4/5 justify-center align-center mx-auto">
         <TextInput
           placeholder="Email"
+          autoCorrect={false}
           value={email}
           onChangeText={(text) => setEmail(text.trim())}
           className="w-full h-12 px-4 pb-3 mb-4 text-lg border border-black rounded-lg bg-white text-black"
         />
         <TextInput
           placeholder="Password"
+          autoCorrect={false}
           value={password}
           onChangeText={(text) => setPassword(text)}
           className="w-full h-12 px-4 pb-3 mb-4 text-lg border border-black rounded-lg bg-white text-black"

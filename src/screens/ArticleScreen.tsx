@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { useAtom } from "jotai";
-import { articleAtom } from "./MoreContentScreen";
+import { articleAtom } from "./ArticlesScreen";
 
 export const ArticleScreen = () => {
   const [article, setArticle] = useAtom(articleAtom);

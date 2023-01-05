@@ -16,7 +16,7 @@ type ArticleProps = {
 
 export const articleAtom = atom({} as ArticleProps);
 
-export const MoreContentScreen = ({ navigation }) => {
+export const ArticlesScreen = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
