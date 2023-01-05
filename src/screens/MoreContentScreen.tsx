@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, ScrollView } from "react-native";
 import { ArticleCard } from "../components/ArticleCard";
 
-export const Home = () => {
-  const [isLoading, setLoading] = useState(true);
+export const MoreContentScreen = () => {
+  const [_, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
 
   const getArticles = async () => {
@@ -28,7 +28,7 @@ export const Home = () => {
 
   return (
     <SafeAreaView className="h-full m-4 pb-10">
-      <Text className="font-bold text-6xl mx-4">Home</Text>
+      <Text className="font-bold text-4xl mx-4">More Content</Text>
       <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
         {articles.map((article, index: number) => (
           <ArticleCard

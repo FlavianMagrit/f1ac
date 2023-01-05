@@ -1,8 +1,7 @@
-import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
 import {
+  Button,
   KeyboardAvoidingView,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
@@ -17,7 +16,7 @@ const LoginScreen = ({ navigation }) => {
   useEffect(() => {
     return auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate("Home");
+        navigation.navigate("Constructors");
       }
     });
   }, []);
@@ -27,6 +26,7 @@ const LoginScreen = ({ navigation }) => {
       .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
+        navigation.navigate("Drivers");
         console.log("Registered with:", user.email);
       })
       .catch((error) => alert(error.message));
@@ -37,7 +37,7 @@ const LoginScreen = ({ navigation }) => {
       .signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        navigation.navigate("Winners !");
+        navigation.navigate("Drivers");
         console.log("Logged in with:", user.email);
       })
       .catch((error) => alert(error.message));
@@ -48,7 +48,6 @@ const LoginScreen = ({ navigation }) => {
       <Text className="font-bold px-3 my-24 text-4xl mx-auto text-center">
         Login or Register for more content
       </Text>
-
       <View className="w-4/5 justify-center align-center mx-auto">
         <TextInput
           placeholder="Email"
