@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, Text, Image, ScrollView } from "react-native";
+
+import { SafeAreaView, Text, ScrollView } from "react-native";
 import { ArticleCard } from "../components/ArticleCard";
-import { useAtom } from "jotai";
 
 export const Home = () => {
   const [isLoading, setLoading] = useState(true);

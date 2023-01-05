@@ -12,6 +12,7 @@ import {
 import { ConstructorScreen } from "./src/screens/ConstructorsScreen";
 import { ConstructorsRankingScreen } from "./src/screens/ConstructorsRankingScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "./src/screens/LoginScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -32,6 +33,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="Winners !" component={ConstructorScreen} />
+        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -41,7 +43,7 @@ const TabsNavigator = () => (
   <Tab.Navigator screenOptions={{ tabBarShowLabel: false, headerShown: false }}>
     <Tab.Screen
       name="Home"
-      component={Home}
+      component={LoginScreen}
       options={{
         tabBarIcon: () => (
           <MaterialCommunityIcons

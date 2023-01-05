@@ -29,7 +29,7 @@ export const DriversScreen = () => {
   };
 
   useEffect(() => {
-    getDrivers(2022);
+    getDrivers(2020);
   }, []);
 
   return (
