@@ -9,9 +9,8 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
-import { ConstructorsScreen } from "./src/screens/ConstructorsScreen";
 import { ArticleScreen } from "./src/screens/ArticleScreen";
-import { ConstructorsRankingScreen } from "./src/screens/ConstructorsRankingScreen";
+import { ConstructorsScreen } from "./src/screens/ConstructorsScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
 import firebase from "firebase/compat";
@@ -36,11 +35,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="MoreContentScreen" component={MoreContentScreen} />
-        <Stack.Screen name="Winners !" component={ConstructorsScreen} />
-        <Stack.Screen
-          name="Constructors"
-          component={ConstructorsRankingScreen}
-        />
+        <Stack.Screen name="Constructors" component={ConstructorsScreen} />
         <Stack.Screen name="Article" component={ArticleScreen} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -77,8 +72,8 @@ const TabsNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="ConstructorsRanking"
-        component={ConstructorsRankingScreen}
+        name="Constructors"
+        component={ConstructorsScreen}
         options={{
           tabBarIcon: () => (
             <MaterialCommunityIcons
