@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Text, ScrollView, SafeAreaView, View } from "react-native";
+import { Text, ScrollView, SafeAreaView, View, TouchableOpacity } from "react-native";
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
 import { ConstructorCard } from "../components/ConstructorCard";
 
-export const seasonAtom = atom(2021);
+type ConstructorProps = {
+  id: number;
+  name: string;
+  logo: string;
+  position: number;
+  points: number;
+  season: number;
+}
+
+export const seasonAtom = atom<number>(2022);
+export const constructorAtom = atom<ConstructorProps>({} as ConstructorProps);
 
 export const ConstructorsScreen = ({ navigation }) => {
   const [season, setSeason] = useAtom(seasonAtom);
+  const [constructor, setConstructor] = useAtom(constructorAtom);
   const [_, setLoading] = useState(true);
   const [constructors, setConstructors] = useState([]);
 
@@ -18,14 +29,13 @@ export const ConstructorsScreen = ({ navigation }) => {
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "",
+            "x-rapidapi-key": "35f3f95a07de3720a825ef01d8169aa2",
           },
         }
       );
       const json = await response.json();
       setConstructors(json.response);
       setSeason(season);
-      console.log(json.response);
     } catch (error) {
       console.error(error);
     }
@@ -34,8 +44,6 @@ export const ConstructorsScreen = ({ navigation }) => {
   useEffect(() => {
     getConstructors();
   }, [season]);
-
-  console.log(constructors);
 
   let pickerSelectStyles;
   return (
@@ -79,17 +87,31 @@ export const ConstructorsScreen = ({ navigation }) => {
           ]}
         />
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {constructors.map((constructor, index: number) => (
-          <ConstructorCard
+      {/* <ScrollView showsVerticalScrollIndicator={false}>
+        {constructors.map((constructor: any, index: number) => (
+          <TouchableOpacity
             key={index}
-            position={constructor.position}
-            name={constructor.team.name}
-            constructorImage={constructor.team.logo}
-            points={constructor.points}
-          />
+            onPress={() => {
+              setConstructor({
+                id: constructor.team.id,
+                name: constructor.team.name,
+                logo: constructor.team.logo,
+                position: constructor.position,
+                points: constructor.points,
+                season: constructor.season,
+              });
+              navigation.navigate("Constructor");
+            }}
+          >
+            <ConstructorCard
+              position={constructor.position}
+              name={constructor.team.name}
+              constructorImage={constructor.team.logo}
+              points={constructor.points}
+            />
+          </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView>*/}
       {/*<ScrollView>*/}
       {/*  {SEASONS.map(({ value }) => (*/}
       {/*    <TouchableOpacity*/}

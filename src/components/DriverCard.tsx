@@ -28,22 +28,13 @@ export const DriversCard = ({
         <View className="justify-between">
           <Text className="font-bold text-white text-2xl">{number}</Text>
           <View>
-            <Text className="font-bold text-base text-white">
-              {transformedFirstname}
-            </Text>
-            <Text className="font-bold text-3xl text-white">
-              {transformedLastname}
-            </Text>
+            <Text className="font-bold text-base text-white">{transformedFirstname}</Text>
+            <Text className="font-bold text-3xl text-white">{transformedLastname}</Text>
           </View>
         </View>
 
         <View className="bg-white rounded-2xl">
-          <Image
-            className="w-32 h-32"
-            source={{
-              uri: pilotImage,
-            }}
-          />
+          <Image className="w-32 h-32" source={{uri: pilotImage}} />
         </View>
       </View>
 
@@ -51,7 +42,7 @@ export const DriversCard = ({
 
       <View className="flex-row mb-4 flex-wrap gap-y-2">
         <View className="bg-gray-500 rounded px-1 mr-2">
-          <Text className="text-base text-white uppercase">{points} pts</Text>
+          <Text className="text-base text-white uppercase">{points ? points : 0} pts</Text>
         </View>
         <View className="bg-gray-500 rounded px-1 mr-2">
           <Text className="text-base text-white uppercase">{constructor}</Text>
