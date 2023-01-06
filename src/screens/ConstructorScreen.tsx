@@ -17,7 +17,7 @@ export const ConstructorScreen = () => {
             {
                 method: "GET",
                 headers: {
-                    "x-rapidapi-key": "35f3f95a07de3720a825ef01d8169aa2",
+                    "x-rapidapi-key": "f26159e82d0763cd243794ffb6401347",
                 },
             });
             const json = await response.json();
@@ -34,7 +34,7 @@ export const ConstructorScreen = () => {
             const response = await fetch(`https://v1.formula-1.api-sports.io/rankings/drivers?team=${id}&season=${season}`,
                 {
                     method: "GET",
-                    headers: {"x-rapidapi-key": "35f3f95a07de3720a825ef01d8169aa2"},
+                    headers: {"x-rapidapi-key": "f26159e82d0763cd243794ffb6401347"},
                 }
             );
             const json = await response.json();

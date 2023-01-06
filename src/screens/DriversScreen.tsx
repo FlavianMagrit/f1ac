@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 import { DriversCard } from "../components/DriverCard";
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
@@ -56,14 +50,13 @@ export const DriversScreen = ({ navigation }) => {
     getDrivers();
   }, [season]);
 
-  console.log("season", season);
   return (
     <SafeAreaView className="h-full mt-4 mb-20">
-      <View className="mx-4 h-12">
+      <View className="mx-4">
         <Text className="font-bold text-5xl">Drivers</Text>
         <View className="w-full h-12 mx-auto mt-4 mb-4 justify-center bg-white border rounded-lg">
           <RNPickerSelect
-            placeholder={{ label: "Select a season", value: null }}
+            placeholder={{}}
             style={{
               inputIOS: {
                 paddingLeft: 10,
@@ -84,9 +77,7 @@ export const DriversScreen = ({ navigation }) => {
                 fontWeight: "bold",
               },
             }}
-            onValueChange={(value) => {
-              setSeason(value);
-            }}
+            onValueChange={(value) => value && setSeason(value)}
             items={[
               { label: "Season 2022", value: 2022 },
               { label: "Season 2021", value: 2021 },
@@ -100,9 +91,10 @@ export const DriversScreen = ({ navigation }) => {
           />
         </View>
       </View>
-      <ScrollView className="mt-20" showsVerticalScrollIndicator={false}>
+      <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
         {drivers.map((driver: any, index: number): any => (
           <TouchableOpacity
+            className="mb-6"
             key={index}
             onPress={() => {
               setDriver({
@@ -130,6 +122,7 @@ export const DriversScreen = ({ navigation }) => {
               podium={driver.position}
               points={driver.points}
               constructor={driver.team.name}
+              abbr={driver.driver.abbr}
             />
           </TouchableOpacity>
         ))}

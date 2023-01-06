@@ -39,11 +39,12 @@ export const ArticlesScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView className="h-full m-4 mb-20">
-      <Text className="font-bold text-4xl mx-4">News</Text>
-      <ScrollView className="mt-8" showsVerticalScrollIndicator={false}>
+    <SafeAreaView className="h-full mt-4 mb-20">
+      <Text className="font-bold text-5xl mx-4 h-12">News</Text>
+      <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
         {articles.map((article: any, index: number) => (
           <TouchableOpacity
+          className="mb-6"
             key={index}
             onPress={() => {
               setArticle(article);

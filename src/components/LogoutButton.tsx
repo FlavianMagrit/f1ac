@@ -2,6 +2,9 @@ import { Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { auth } from "../config/firebaseConfig";
 import { useNavigation } from "@react-navigation/native";
+
+import { MaterialIcons } from "@expo/vector-icons";
+
 export const LogoutButton = () => {
 
   const navigation = useNavigation();
@@ -13,8 +16,8 @@ export const LogoutButton = () => {
   };
 
   return (
-    <TouchableOpacity onPress={handleSignOut} className="w-1/4 h-12 mr-4 mb-5 mt-10 rounded-lg bg-black justify-center">
-      <Text className="text-lg text-center text-white">Logout</Text>
+    <TouchableOpacity onPress={handleSignOut} className="mr-4 mb-5 mt-10">
+      <MaterialIcons name="logout" color="black" size={30} />
     </TouchableOpacity>
   );
 };

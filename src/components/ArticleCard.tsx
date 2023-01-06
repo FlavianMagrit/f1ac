@@ -13,7 +13,7 @@ export const ArticleCard = ({
     articleImage,
     publishDate,
 }: ArticleProps) => (
-    <View className="bg-black mx-4 mb-6 p-4 rounded-2xl">
+    <View className="bg-black p-4 rounded-2xl">
         <Image
             source={{uri: articleImage ?? 'https://wallpaper.dog/large/20509438.jpg'}}
             className="w-full h-32 rounded-2xl mb-4"

@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { FontAwesome, MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome, MaterialCommunityIcons, MaterialIcons, Ionicons } from "@expo/vector-icons";
 
 import firebase from "firebase/compat";
 
@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-        <View className="flex-row justify-between">
+        <View className="flex-row justify-between items-center">
           <Image className="w-16 h-16 mt-4 ml-6" source={{uri: "https://lezebre.lu/images/detailed/79/45334-Sticker-Formula-1-nouveau-logo-F1.png"}} />
           {isLogged && <LogoutButton />}
         </View>
@@ -58,27 +58,27 @@ const TabsNavigator = () => {
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{tabBarIcon: () => <MaterialCommunityIcons name="garage-open-variant" color="black" size={30} />}}/>
+        options={{tabBarIcon: () => <MaterialCommunityIcons name="garage-variant" color="black" size={35} />}}/>
       <Tab.Screen
         name="Drivers"
         component={DriversScreen}
-        options={{tabBarIcon: () => <FontAwesome name="drivers-license" color="black" size={30} />}} />
+        options={{tabBarIcon: () => <MaterialCommunityIcons name="racing-helmet" color="black" size={35} />}}/>
       <Tab.Screen
         name="Constructors"
         component={ConstructorsScreen}
-        options={{tabBarIcon: () => <MaterialCommunityIcons name="keyboard-f1" size={48} color="black" />}}
+        options={{tabBarIcon: () => <Ionicons name="car-sport" size={35} color="black" />}}
       />
       {
         user ?
           <Tab.Screen
             name="Articles"
             component={ArticlesScreen}
-            options={{tabBarIcon: () => <MaterialIcons name="keyboard-control" color="black" size={48} />}}/>
+            options={{tabBarIcon: () => <FontAwesome name="newspaper-o" color="black" size={30} />}} />
         :
           <Tab.Screen
             name="User"
             component={LoginScreen}
-            options={{tabBarIcon: () => <MaterialIcons name="keyboard-control" color="black" size={48} />}}/>
+            options={{tabBarIcon: () => <MaterialIcons name="login" color="black" size={30} />}}/>
       }
     </Tab.Navigator>
   );

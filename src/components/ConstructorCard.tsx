@@ -14,19 +14,16 @@ export const ConstructorCard = ({
   constructorImage,
   points,
 }: ConstructorProps) => (
-  <View className="bg-black mb-6 p-4 rounded-2xl">
+  <View className="bg-black p-4 rounded-2xl">
     <View className="flex-row justify-between">
-      <View className="justify-between gap-x-4 w-1/2">
-        <Text className="font-bold text-white text-2xl">{position}</Text>
+      <View className="justify-between gap-x-4 w-2/3">
+        <Text className="text-4xl font-black italic text-white">{position}</Text>
         <View>
-          <Text className="font-bold text-2xl text-white">{name}</Text>
+          <Text className="text-3xl italic font-black text-white uppercase">{name}</Text>
         </View>
       </View>
-      <View className="bg-white w-1/2 rounded-2xl items-center justify-center aspect-square">
-        <Image
-          className="w-full h-24"
-          source={{ uri: constructorImage }}
-        />
+      <View className="bg-white rounded-2xl aspect-square justify-center">
+        <Image className="w-32 h-16 rounded-2xl" source={{uri: constructorImage}} />
       </View>
     </View>
 
@@ -34,7 +31,7 @@ export const ConstructorCard = ({
 
     <View className="flex-row mb-4">
       <View className="bg-gray-500 rounded px-1 mr-2">
-        <Text className="text-base text-white uppercase">{points} pts</Text>
+        <Text className="text-base text-white uppercase">{points ? points : 0} pts</Text>
       </View>
     </View>
   </View>

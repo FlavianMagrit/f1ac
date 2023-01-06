@@ -35,17 +35,19 @@ const LoginScreen = ({ navigation }) => {
       <View className="w-4/5 justify-center align-center mx-auto">
         <TextInput
           placeholder="Email"
+          autoCapitalize="none"
+          autoComplete="email"
+          keyboardType="email-address"
           autoCorrect={false}
           value={email}
           onChangeText={(text) => setEmail(text.trim())}
-          className="w-full h-12 px-4 pb-3 mb-4 text-lg border border-black rounded-lg bg-white text-black"
+          className="w-full h-12 px-4 mb-4 text-lg border border-black rounded-lg bg-white text-black"
         />
         <TextInput
           placeholder="Password"
-          autoCorrect={false}
           value={password}
           onChangeText={(text) => setPassword(text)}
-          className="w-full h-12 px-4 pb-3 mb-4 text-lg border border-black rounded-lg bg-white text-black"
+          className="w-full h-12 px-4 mb-4 text-lg border border-black rounded-lg bg-white text-black"
           secureTextEntry
         />
       </View>
