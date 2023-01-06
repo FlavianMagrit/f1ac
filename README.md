@@ -33,7 +33,7 @@ git clone https://github.com/FlavianMagrit/f1ac.git
 
 ### 2. Navigate to the repository directory
 ```bash
-cd fiac
+cd f1ac
 ```
 ### 3. Install dependencies
  
