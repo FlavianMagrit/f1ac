@@ -33,7 +33,7 @@ git clone https://github.com/FlavianMagrit/f1ac.git
 
 ### 2. Navigate to the repository directory
 ```bash
-cd fiac
+cd f1ac
 ```
 ### 3. Install dependencies
  
@@ -62,3 +62,6 @@ To start the development server and run the app in your default web browser, use
 
 #### Tunnel (Starting Metro Bundler to launch on your own device)
 `npm run start` or `yarn start` or `expo start`
+
+#### If nothing happens with the start commands, try to use:
+`npx expo start --tunnel`
