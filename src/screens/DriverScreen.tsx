@@ -15,7 +15,7 @@ export const DriverScreen = () => {
         `https://v1.formula-1.api-sports.io/drivers?id=${id}`,
         {
           method: "GET",
-          headers: { "x-rapidapi-key": "f26159e82d0763cd243794ffb6401347" },
+          headers: { "x-rapidapi-key": "9684c09cd4c60215395bd06439de781d" },
         }
       );
       const json = await response.json();
@@ -44,7 +44,7 @@ export const DriverScreen = () => {
             </View>
             <View>
               <Text className="text-2xl text-white">{driver.name.split(" ")[0]}</Text>
-              <Text className="text-4xl italic font-black text-white uppercase">{driver.name.split(" ")[1]}</Text>
+              <Text className="text-4xl italic font-black text-white uppercase">{driver.name.split(" ").splice(1).join(" ")}</Text>
             </View>
           </View>
           <Image source={{uri: driver.image ?? "https://wallpaper.dog/large/20509438.jpg"}} className="w-36 h-36"/>
@@ -54,19 +54,19 @@ export const DriverScreen = () => {
           <View>
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">Podiums</Text>
-              <Text className="text-5xl font-black italic">{driverStats.podiums}</Text>
+              <Text className="text-5xl font-black italic">{driverStats.podiums ?? 0}</Text>
             </View>
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">GPs Entered</Text>
-              <Text className="text-5xl font-black italic">{driverStats.grands_prix_entered}</Text>
+              <Text className="text-5xl font-black italic">{driverStats.grands_prix_entered ?? 0}</Text>
             </View>
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">World Championships Won</Text>
-              <Text className="text-5xl font-black italic">{driverStats.world_championships}</Text>
+              <Text className="text-5xl font-black italic">{driverStats.world_championships ?? 0}</Text>
             </View>
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">Career Points</Text>
-              <Text className="text-5xl font-black italic">{driverStats.career_points}</Text>
+              <Text className="text-5xl font-black italic">{driverStats.career_points ?? 0}</Text>
             </View>
           </View>
         </View>
@@ -77,22 +77,26 @@ export const DriverScreen = () => {
         <View className="px-4 my-4 border-t border-gray-300">
           <Text className="text-2xl font-bold border-b border-gray-200 py-2.5">Driver</Text>
           <View>
+            {driverStats?.country?.name &&
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">Country</Text>
               <Text className="text-2xl font-black">{driverStats?.country?.name}</Text>
-            </View>
+            </View>}
+            {driverStats.nationality &&
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">nationality</Text>
               <Text className="text-2xl font-black">{driverStats.nationality}</Text>
-            </View>
+            </View>}
+            {driverStats.birthplace &&
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">Birthplace</Text>
               <Text className="text-2xl font-black">{driverStats.birthplace}</Text>
-            </View>
+            </View>}
+            {driverStats.birthdate &&
             <View className="border-b border-r rounded-b-2xl border-gray-200 mt-2.5">
               <Text className="text-base font-medium mb-2 text-gray-600">Birthdate</Text>
               <Text className="text-2xl font-black">{driverStats.birthdate}</Text>
-            </View>
+            </View>}
           </View>
         </View>
       </ScrollView>

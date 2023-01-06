@@ -4,14 +4,14 @@ import { View, Text, Image } from "react-native";
 type ConstructorProps = {
   position: number;
   name: string;
-  constructorImage: string;
+  logo: string;
   points: number;
 };
 
 export const ConstructorCard = ({
   position,
   name,
-  constructorImage,
+  logo,
   points,
 }: ConstructorProps) => (
   <View className="bg-black p-4 rounded-2xl">
@@ -23,7 +23,7 @@ export const ConstructorCard = ({
         </View>
       </View>
       <View className="bg-white rounded-2xl aspect-square justify-center">
-        <Image className="w-32 h-16 rounded-2xl" source={{uri: constructorImage}} />
+        <Image className="w-32 h-16 rounded-2xl" source={{uri: logo}} />
       </View>
     </View>
 

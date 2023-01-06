@@ -35,7 +35,7 @@ export const DriversScreen = ({ navigation }) => {
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "f26159e82d0763cd243794ffb6401347",
+            "x-rapidapi-key": "9684c09cd4c60215395bd06439de781d",
           },
         }
       );
@@ -118,8 +118,7 @@ export const DriversScreen = ({ navigation }) => {
           >
             <DriversCard
               key={index}
-              firstname={driver.driver.name}
-              lastname={driver.driver.name}
+              name={driver.driver.name}
               number={driver.driver.number}
               pilotImage={driver.driver.image}
               podium={driver.position}

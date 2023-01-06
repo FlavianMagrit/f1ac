@@ -31,7 +31,7 @@ export const ConstructorsScreen = ({ navigation }) => {
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "f26159e82d0763cd243794ffb6401347",
+            "x-rapidapi-key": "9684c09cd4c60215395bd06439de781d",
           },
         }
       );
@@ -111,7 +111,7 @@ export const ConstructorsScreen = ({ navigation }) => {
           <ConstructorCard
             position={constructor.position}
             name={constructor.team.name}
-            constructorImage={constructor.team.logo}
+            logo={constructor.team.logo}
             points={constructor.points}
           />
         </TouchableOpacity>
