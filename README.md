@@ -56,3 +56,6 @@ To start the development server and run the app in your default web browser, use
 
 #### Tunnel (Starting Metro Bundler to launch on your own device)
 `npm run start` or `yarn start` or `expo start`
+
+#### If nothing happens with the start commands, try to use:
+`npx expo start --tunnel`
