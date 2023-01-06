@@ -3,6 +3,7 @@ import { Text, SafeAreaView, View, ScrollView, TouchableOpacity } from "react-na
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
 import { ConstructorCard } from "../components/ConstructorCard";
+import { Loader } from "../components/Loader";
 
 type ConstructorProps = {
   id: number;
@@ -19,10 +20,12 @@ export const constructorAtom = atom<ConstructorProps>({} as ConstructorProps);
 export const ConstructorsScreen = ({ navigation }) => {
   const [_, setConstructor] = useAtom(constructorAtom);
   const [constructors, setConstructors] = useState([]);
+  const [isLoading, setLoading] = useState(true);
   const [season, setSeason] = useAtom(seasonAtom);
 
   const getConstructors = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://v1.formula-1.api-sports.io/rankings/teams?season=${season}`,
         {
@@ -36,6 +39,8 @@ export const ConstructorsScreen = ({ navigation }) => {
       setConstructors(json.response);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -84,6 +89,8 @@ export const ConstructorsScreen = ({ navigation }) => {
           />
         </View>
       </View>
+      
+      {isLoading ? <Loader /> :
       <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
         {constructors.map((constructor:any, index: number) => (
           <TouchableOpacity
@@ -109,7 +116,7 @@ export const ConstructorsScreen = ({ navigation }) => {
           />
         </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView>}
     </SafeAreaView>
   );
 };

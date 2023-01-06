@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-na
 import { DriversCard } from "../components/DriverCard";
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
+import { Loader } from "../components/Loader";
 
 type DriverProps = {
   id: number;
@@ -28,6 +29,7 @@ export const DriversScreen = ({ navigation }) => {
 
   const getDrivers = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://v1.formula-1.api-sports.io/rankings/drivers?season=${season}`,
         {
@@ -91,6 +93,7 @@ export const DriversScreen = ({ navigation }) => {
           />
         </View>
       </View>
+      {isLoading ? <Loader /> :
       <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
         {drivers.map((driver: any, index: number): any => (
           <TouchableOpacity
@@ -126,7 +129,7 @@ export const DriversScreen = ({ navigation }) => {
             />
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView>}
     </SafeAreaView>
   );
 };

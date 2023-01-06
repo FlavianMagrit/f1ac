@@ -2,6 +2,7 @@ import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 import { driverAtom } from "./DriversScreen";
+import { Loader } from "../components/Loader";
 
 export const DriverScreen = () => {
   const [isLoading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ export const DriverScreen = () => {
   }, []);
 
   return (
+    isLoading ? <Loader /> :
     <SafeAreaView className="h-full">
       <ScrollView>
         <View className="flex-row justify-between bg-black">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { atom, useAtom } from "jotai";
 import { SafeAreaView, Text, ScrollView, TouchableOpacity } from "react-native";
 import { ArticleCard } from "../components/ArticleCard";
+import { Loader } from "../components/Loader";
 
 type ArticleProps = {
   title: string;
@@ -41,6 +42,7 @@ export const ArticlesScreen = ({ navigation }) => {
   return (
     <SafeAreaView className="h-full mt-4 mb-20">
       <Text className="font-bold text-5xl mx-4 h-12">News</Text>
+      {isLoading ? <Loader /> :
       <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
         {articles.map((article: any, index: number) => (
           <TouchableOpacity
@@ -59,7 +61,7 @@ export const ArticlesScreen = ({ navigation }) => {
             />
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView>}
     </SafeAreaView>
   );
 };
