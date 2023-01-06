@@ -40,9 +40,15 @@ cd fiac
 ```bash 
 npm install
 ``` 
+```bash
+npm i react-native-picker-select --legacy-peer-deps
+```
 or 
 ```bash 
 yarn install
+```
+```bash 
+yarn i react-native-picker-select --legacy-peer-deps
 ```
 
 ### 4. Running the app
