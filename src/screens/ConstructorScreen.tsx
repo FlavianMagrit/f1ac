@@ -2,6 +2,7 @@ import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import { Image, SafeAreaView, ScrollView, Text, View } from "react-native";
 import { constructorAtom } from "./ConstructorsScreen";
+import { Loader } from "../components/Loader";
 
 export const ConstructorScreen = () => {
 
@@ -17,7 +18,7 @@ export const ConstructorScreen = () => {
             {
                 method: "GET",
                 headers: {
-                    "x-rapidapi-key": "f26159e82d0763cd243794ffb6401347",
+                    "x-rapidapi-key": "9684c09cd4c60215395bd06439de781d",
                 },
             });
             const json = await response.json();
@@ -34,7 +35,7 @@ export const ConstructorScreen = () => {
             const response = await fetch(`https://v1.formula-1.api-sports.io/rankings/drivers?team=${id}&season=${season}`,
                 {
                     method: "GET",
-                    headers: {"x-rapidapi-key": "f26159e82d0763cd243794ffb6401347"},
+                    headers: {"x-rapidapi-key": "9684c09cd4c60215395bd06439de781d"},
                 }
             );
             const json = await response.json();
@@ -52,6 +53,7 @@ export const ConstructorScreen = () => {
     }, []);
 
     return (
+        isLoading ? <Loader /> :
         <SafeAreaView className="h-full">
             <ScrollView>
                 <View className="flex-row justify-between bg-black">

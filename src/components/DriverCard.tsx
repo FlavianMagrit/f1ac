@@ -3,8 +3,7 @@ import { Image, Text, View } from "react-native";
 
 interface DriverProps {
   number: number;
-  firstname: string;
-  lastname: string;
+  name: string;
   pilotImage: string;
   points: string;
   constructor: string;
@@ -14,8 +13,7 @@ interface DriverProps {
 
 export const DriversCard = ({
   number,
-  firstname,
-  lastname,
+  name,
   pilotImage,
   points,
   constructor,
@@ -29,8 +27,8 @@ export const DriversCard = ({
           {abbr && <Text className="text-lg italic border-l border-gray-600 pl-2 ml-2 text-white uppercase">{abbr}</Text>}
         </View>
         <View>
-          <Text className="text-xl font-bold text-white">{firstname.split(" ")[0]}</Text>
-          <Text className="text-3xl italic font-black text-white uppercase">{lastname.split(" ").splice(1).join(" ")}</Text>
+          <Text className="text-xl font-bold text-white">{name.split(" ")[0]}</Text>
+          <Text className="text-3xl italic font-black text-white uppercase">{name.split(" ").splice(1).join(" ")}</Text>
         </View>
       </View>
 

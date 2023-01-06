@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from "react-na
 import { DriversCard } from "../components/DriverCard";
 import { atom, useAtom } from "jotai";
 import RNPickerSelect from "react-native-picker-select";
+import { Loader } from "../components/Loader";
 
 type DriverProps = {
   id: number;
@@ -28,12 +29,13 @@ export const DriversScreen = ({ navigation }) => {
 
   const getDrivers = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://v1.formula-1.api-sports.io/rankings/drivers?season=${season}`,
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "f26159e82d0763cd243794ffb6401347",
+            "x-rapidapi-key": "9684c09cd4c60215395bd06439de781d",
           },
         }
       );
@@ -91,6 +93,7 @@ export const DriversScreen = ({ navigation }) => {
           />
         </View>
       </View>
+      {isLoading ? <Loader /> :
       <ScrollView className="mx-4" showsVerticalScrollIndicator={false}>
         {drivers.map((driver: any, index: number): any => (
           <TouchableOpacity
@@ -115,8 +118,7 @@ export const DriversScreen = ({ navigation }) => {
           >
             <DriversCard
               key={index}
-              firstname={driver.driver.name}
-              lastname={driver.driver.name}
+              name={driver.driver.name}
               number={driver.driver.number}
               pilotImage={driver.driver.image}
               podium={driver.position}
@@ -126,7 +128,7 @@ export const DriversScreen = ({ navigation }) => {
             />
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView>}
     </SafeAreaView>
   );
 };
